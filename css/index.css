@@ -1,4 +1,5 @@
 @import url("base.css");
+
 header{
     width: 100%;
     height: 40px;
@@ -10,8 +11,6 @@ header{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    /*background: pink;*/
-    /*width: 1024px;*/
 }
 header div{
     font-size: 10px;
@@ -21,9 +20,13 @@ nav{
     width: 100%;
     height: 44px;
     background: #333333;
+    z-index: 900;
 }
 nav .container{
     justify-content: space-between;
+}
+nav ul li{
+    cursor: pointer;
 }
 nav ul li a,i{
     font-size: 12px;
@@ -32,10 +35,175 @@ nav ul li a,i{
     height: 44px;
     line-height: 44px;
 }
-nav ul li a:hover{
+nav .iconfont{
+    font-size: 20px;
+}
+nav ul li:hover a,
+nav ul li:hover i{
     color: #b7b7b7;
 }
-nav ul li a i:hover{
+.bag{
+    width: 291px;
+    height: 318px;
+    background: white;
+    border: 1px solid #e3e3e3;
+    box-sizing: border-box;
+    position: fixed;
+    top: 90px;
+    border-radius: 5px;
+    display: none;
+    z-index: 999;
+}
+.bag li{
+    width: 248px;
+    height: 44px;
+    border-bottom: 1px solid #e3e3e3;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.bag li:first-child{
+    width: 16px;
+    height: 16px;
+    border-top: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;
+    border-right: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -9px;
+    background: white;
+}
+.bag li:nth-child(2){
+    height: 88px;
+    line-height: 87px;
+    color: #888888;
+    font-size: 14px;
+    text-align: center;
+}
+.bag li:last-child{
+    border-bottom: none;
+}
+.bag li .iconbox{
+    width: 20px;
+    height: 20px;
+    margin-top: 11px;
+    float: left;
+    /*background: pink;*/
+    margin-right: 10px;
+}
+.bag li .iconbox .iconfont{
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    color: #0070c9;
+}
+.bag li .text{
+    width: 100px;
+    height: 100%;
+    color: #0070c9;
+    line-height: 43px;
+    font-size: 14px;
+}
+.bag li:hover .text{
+    text-decoration: underline;
+}
+.meaubox{
+    width: 100%;
+    /*height: 900px;*/
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    z-index: 999;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    transition: all .5s;
+}
+.meaubox .top{
+    width: 100%;
+    height: 101px;
+    border-bottom: 1px solid #282828;
+    box-sizing: border-box;
+    position: relative;
+}
+.meaubox .top ul{
+    width: 100%;
+    height: 48px;
+
+}
+.meaubox .top ul li{
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-left: 6px;
+}
+.meaubox .top ul li .iconfont{
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    line-height: 48px;
+}
+.meaubox .top ul li:first-child{
+    margin-right: 284px;
+}
+.meaubox .top ul li a:hover .iconfont{
+    color: #b7b7b7;
+}
+.meaubox input{
+    width: 584px;
+    height: 37px;
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+    background: #282828;
+    outline: none;
+    border: none;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.meaubox input::-webkit-input-placeholder{
+    font-size: 14px;
+    color: #999999;
+}
+.meaubox .sousuo{
+    width: 28px;
+    height: 37px;
+    position: absolute;
+    top: 48px;
+    left: 76px;
+}
+.meaubox .sousuo .iconfont{
+    font-size: 16px;
+    color: #979797;
+    text-align: center;
+    line-height: 37px;
+}
+.meaubox .bottom{
+     width: 100%;
+     height: 264px;
+    padding: 0 65px;
+    box-sizing: border-box;
+     margin: 4px 0 0;
+ }
+.meaubox .bottom li{
+    width: 100%;
+    height: 44px;
+    border-bottom: 1px solid #282828;
+    box-sizing: border-box;
+}
+.meaubox .bottom li:last-child{
+    border-bottom: none;
+}
+.meaubox .bottom li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 14px;
+    color: white;
+    line-height: 43px;
+
+}
+.meaubox .bottom li:hover a{
     color: #b7b7b7;
 }
 /*主要部分开始*/
@@ -284,47 +452,48 @@ nav ul li a i:hover{
 }
 .footer1{
     width: 100%;
-    height: 425px;
+    height: auto;
     background: #f2f2f2;
     padding: 0 17px;
     box-sizing: border-box;
     /*background: red;*/
 }
-.footer1 ul{
+.footer1 .big{
     width: 100%;
-    height: 261px;
+    /*height: 268px;*/
+    height: auto;
+    background: #f2f2f2;
 }
-.footer1 ul li{
+.footer1 .big li{
     width: 100%;
-    height: 37px;
+    height: auto;
     border-bottom: 1px solid #d6d6d6;
+    overflow: hidden;
+    cursor: pointer;
 }
-.footer1 ul li a{
-    width: 100%;
-    height: 37px;
-    display: block;
-
-}
-.footer1 ul li a h3{
+.footer1 .big li h3{
     width: auto;
-    height:100% ;
+    height: 100%;
     font-size: 8px;
     line-height: 37px;
     color: #333;
     float: left;
 }
-.footer1 ul li a h2{
+.footer1 .big li h2{
     width: auto;
-    height:100% ;
-    font-size: 10px;
+    height: 100%;
+    font-size: 12px;
     line-height: 37px;
     color: #333;
     float: right;
+    transition: all .5s;
 }
 .footer1 .box1{
     width: 100%;
     height: 53px;
     line-height: 53px;
+    /*background: blue;*/
+    margin-top: 5px;
 }
 .footer1 .box1 a{
     color: #0070c9;
@@ -380,6 +549,47 @@ nav ul li a i:hover{
 }
 .footer .small .small_li a:hover{
     text-decoration: underline;
+}
+.footer1 .big li .small{
+    width: 100%;
+    height: 310px;
+    padding-top: 42px;
+    padding-left: 13px;
+    box-sizing: border-box;
+    /*display: none;*/
+}
+.footer1 .big li .small1{
+    height: 371px;
+}
+.footer1 .big li .small2{
+    height: 122px;
+}
+.footer1 .big li .small3{
+    height: 145px;
+}
+.footer1 .big li .small4{
+    height: 203px;
+}
+.footer1 .big li .small5{
+    height: 175px;
+}
+.footer1 .big li .small6{
+    height: 233px;
+}
+.footer1 .small li{
+    height: 28px;
+    border-bottom: none;
+}
+.footer1 .small li a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.footer1 .small li:hover a{
+    text-decoration: underline;
+}
+.footer1 .small li{
+    line-height: 28px;
 }
 /*底部结束*/
 /* >1024  */
@@ -536,6 +746,12 @@ nav ul li a i:hover{
     }
     .footer1{
         display: none;
+    }
+    .bag{
+        right: 16%;
+    }
+    .bag li:first-child{
+        right: 136px;
     }
 }
 
@@ -705,6 +921,12 @@ nav ul li a i:hover{
     .footer1{
         display: none;
     }
+    .bag{
+        right: 5px;
+    }
+    .bag li:first-child{
+        right: 18px;
+    }
 }
 /* <768 */
 @media screen and (max-width: 768px){
@@ -851,5 +1073,11 @@ nav ul li a i:hover{
     }
     .footer1{
         display: block;
+    }
+    .bag{
+        right: 5px;
+    }
+    .bag li:first-child{
+        right: 18px;
     }
 }
